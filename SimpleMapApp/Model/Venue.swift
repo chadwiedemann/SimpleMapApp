@@ -7,15 +7,20 @@
 //
 
 import Foundation
-import CoreLocation
+import MapKit
+import UIKit
 
-struct Venue: Codable {
+class Venue: MKPointAnnotation, Codable {
     let id: String
     let name: String
     let location: Location
-    var coordinates: CLLocationCoordinate2D?
-    let photoURL: String?
-    let websiteURL: String?
+    var photoURL: String?
+    var websiteURL: String?
     
+    init(id: String, name: String, location: Location) {
+        self.id = id
+        self.name = name
+        self.location = location
+    }
     
 }

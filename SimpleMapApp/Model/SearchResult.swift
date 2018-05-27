@@ -8,5 +8,11 @@
 
 import Foundation
 struct SearchResult: Codable {
-    
+    let response: Response
+
 }
+
+struct Response: Codable {
+    let venues: [Venue]
+}
+

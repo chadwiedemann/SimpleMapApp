@@ -30,11 +30,28 @@ class OpeningMapVC: UIViewController {
         super.init(coder: aDecoder)
     }
     
+    func registerAnnotationViewClasses() {
+        mapView.register(CustomAnnotationView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        mapView.register(ClusterView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBarDelegate = SearchBarDelegate(searchBar: searchBar, mapView: mapView, stateController: state, networker: networker)
         mapViewDelegate = MapViewDelegate(mapView: mapView, stateController: state, networker: networker)
+        registerAnnotationViewClasses()
+        //register for notfications
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(self.placeAnnotations), name: NSNotification.Name(rawValue: "finishedAPICall"), object: nil)
     }
 
+    @objc private func placeAnnotations() {
+        if state.searchResults.isEmpty{
+            Alert.show("Error", message: "no results found for your search request please try another search", viewController: self)
+            return
+        }
+//        mapView.fitAll(in: state.searchResults, andShow: true)
+        mapView.showAnnotations(state.searchResults, animated: true)
+    }
 }
 

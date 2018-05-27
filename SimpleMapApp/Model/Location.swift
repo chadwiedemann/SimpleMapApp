@@ -10,15 +10,11 @@ import Foundation
 import CoreLocation
 
 struct Location: Codable {
-    let coordinates: CLLocationCoordinate2D
-    let city: String
-    let address: String
+    let coordinates: [CLLocationCoordinate2D]?
     let distance: Int
     
     enum CodingKeys: String, CodingKey {
         case coordinates = "labeledLatLngs"
-        case city = "city"
-        case address = "address"
         case distance = "distance"
     }
     

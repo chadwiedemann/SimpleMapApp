@@ -28,6 +28,8 @@ class SearchBarDelegate: NSObject {
 extension SearchBarDelegate: UISearchBarDelegate{
  
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        mapview.removeAnnotations(mapview.annotations)
         let center = mapview.centerCoordinate
         if let searchText = searchBar.text {
             networker.getNearbyPlacesFromString(searchText, centerPoint: center)

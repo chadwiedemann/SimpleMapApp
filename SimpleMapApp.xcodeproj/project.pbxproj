@@ -22,6 +22,9 @@
 		D81AB1EE20B9FC4C00836F22 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1ED20B9FC4C00836F22 /* Location.swift */; };
 		D81AB1F020B9FE1400836F22 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1EF20B9FE1400836F22 /* SearchResult.swift */; };
 		D81AB1F220B9FEF600836F22 /* FourSquareCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1F120B9FEF600836F22 /* FourSquareCodes.swift */; };
+		D81AB1F520BA1F5B00836F22 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1F420BA1F5B00836F22 /* Alert.swift */; };
+		D81AB1FB20BA40A300836F22 /* ClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1FA20BA40A300836F22 /* ClusterView.swift */; };
+		D81AB1FD20BA43D600836F22 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1FC20BA43D600836F22 /* CustomAnnotationView.swift */; };
 		D8A1A6BB20B9BB420092ADEC /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A1A6BA20B9BB420092ADEC /* NetworkController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +48,9 @@
 		D81AB1ED20B9FC4C00836F22 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		D81AB1EF20B9FE1400836F22 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		D81AB1F120B9FEF600836F22 /* FourSquareCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareCodes.swift; sourceTree = "<group>"; };
+		D81AB1F420BA1F5B00836F22 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		D81AB1FA20BA40A300836F22 /* ClusterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterView.swift; sourceTree = "<group>"; };
+		D81AB1FC20BA43D600836F22 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		D8A1A6BA20B9BB420092ADEC /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +104,7 @@
 		D811F5E320B98A020069531D /* SimpleMapApp */ = {
 			isa = PBXGroup;
 			children = (
+				D81AB1F320BA1F4100836F22 /* Utilities */,
 				D81AB1E420B9D74F00836F22 /* Swift Extensions */,
 				D81AB1E320B9D2D300836F22 /* Resources */,
 				D81AB1D620B9C15800836F22 /* Constants */,
@@ -124,6 +131,8 @@
 		D811F5F720B98A850069531D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D81AB1FA20BA40A300836F22 /* ClusterView.swift */,
+				D81AB1FC20BA43D600836F22 /* CustomAnnotationView.swift */,
 				D811F5ED20B98A020069531D /* LaunchScreen.storyboard */,
 				D81AB1D020B9BF7B00836F22 /* OpeningMapVC.xib */,
 			);
@@ -188,6 +197,14 @@
 				D81AB1E520B9EE4300836F22 /* Extensions.swift */,
 			);
 			path = "Swift Extensions";
+			sourceTree = "<group>";
+		};
+		D81AB1F320BA1F4100836F22 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D81AB1F420BA1F5B00836F22 /* Alert.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,10 +331,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D81AB1F020B9FE1400836F22 /* SearchResult.swift in Sources */,
+				D81AB1FD20BA43D600836F22 /* CustomAnnotationView.swift in Sources */,
 				D81AB1DE20B9CF5C00836F22 /* MapViewDelegate.swift in Sources */,
 				D81AB1E620B9EE4300836F22 /* Extensions.swift in Sources */,
 				D81AB1F220B9FEF600836F22 /* FourSquareCodes.swift in Sources */,
 				D81AB1EE20B9FC4C00836F22 /* Location.swift in Sources */,
+				D81AB1F520BA1F5B00836F22 /* Alert.swift in Sources */,
 				D81AB1D120B9BF7B00836F22 /* OpeningMapVC.swift in Sources */,
 				D81AB1DC20B9CD7000836F22 /* SearchBarDelegate.swift in Sources */,
 				D81AB1E820B9FA7D00836F22 /* Venue.swift in Sources */,
@@ -325,6 +344,7 @@
 				D81AB1D920B9CA7B00836F22 /* StateController.swift in Sources */,
 				D811F5E520B98A020069531D /* AppDelegate.swift in Sources */,
 				D8A1A6BB20B9BB420092ADEC /* NetworkController.swift in Sources */,
+				D81AB1FB20BA40A300836F22 /* ClusterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
