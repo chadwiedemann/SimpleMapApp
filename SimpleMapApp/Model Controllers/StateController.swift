@@ -11,18 +11,17 @@ import UIKit
 
 class StateController {
     var searchResults = [Venue]()
-    var imageDictionary = [String:UIImage]()
     
     func loadVenuesFromData(_ data: Data) {
         do{
+            
             let decodedData = try JSONDecoder().decode(SearchResult.self, from: data)
-            searchResults = decodedData.response.venues.filter { $0.location.coordinates?.first != nil }
+            searchResults = decodedData.response.venues.filter { $0.location.coordinates?.first != nil }.map{ Venue(decodableVenue: $0) }
             
             for result in searchResults{
                 //we are force unwrapping here becuase we just made sure to remove any nil cases above. 
                 result.coordinate = result.location.coordinates!.first!
-                result.title = result.name
-                
+                result.title = result.name                
             }
             //load annotations onto map and zoom in to fit them
             DispatchQueue.main.async {
@@ -34,6 +33,5 @@ class StateController {
             print(error)
         }
     }
-    
     
 }

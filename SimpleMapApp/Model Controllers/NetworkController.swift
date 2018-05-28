@@ -8,10 +8,13 @@
 
 import Foundation
 import MapKit
+import RxCocoa
+import RxSwift
 
 class NetworkController {
     
     let state: StateController!
+    
     
     init(state: StateController) {
         self.state = state
@@ -66,11 +69,12 @@ class NetworkController {
                         print(json)
                         if let websiteURL = venueDetail["url"] as? String {
                             venue.websiteURL = websiteURL
+                            venue.subtitle = websiteURL
                         }
                         if let bestPhoto = venueDetail["bestPhoto"] as? [String: Any],
                             let prefix = bestPhoto["prefix"] as? String,
                             let suffix = bestPhoto["suffix"] as? String{
-                            venue.photoURL = prefix + "100x100" + suffix
+                            venue.photoURL = prefix + "36x36" + suffix
                             self.downloadVenuePhoto(venue)
                         }
                     }
@@ -83,21 +87,23 @@ class NetworkController {
     }
     
     func downloadVenuePhoto(_ venue: Venue) {
-        print("photo download started")
-        guard let websiteURL = venue.websiteURL else {
+        print("photo download started \(venue.photoURL ?? "NO IMAGE")")
+        guard let websiteURL = venue.photoURL else {
             return
         }
         let url = URL(string: websiteURL)!
         URLSession.shared.dataTask(with: url) { data, response, error in
-            do{
-                guard let newImage = UIImage(data: data) else {
+                guard let data = data, let newImage = UIImage(data: data) else {
                     return
                 }
-                self.state.imageDictionary[venue.id] = newImage
-                print("IMAGE CACHED")
-            }catch{
-                print("Error creating image: \(error)")
+            DispatchQueue.main.async {
+                venue.image = UIImageView(image: newImage)
+                let notificationCenter = NotificationCenter.default
+                let info = ["id": venue.id]
+                notificationCenter.post(name: NSNotification.Name(rawValue: "annotationImageUpdated"), object: nil, userInfo: info)
             }
+            
+                print("IMAGE CACHED")
         }.resume()
     }
 }

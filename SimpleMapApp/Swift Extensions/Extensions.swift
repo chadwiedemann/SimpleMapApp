@@ -9,6 +9,8 @@
 import Foundation
 import MapKit
 
+typealias ViewBlock = (_ view: UIView) -> Bool
+
 extension CLLocationCoordinate2D: Codable {
     
     public enum CodingKeys: String, CodingKey {
@@ -28,6 +30,50 @@ extension CLLocationCoordinate2D: Codable {
         longitude = try values.decode(Double.self, forKey: .longitude)
     }
     
+}
+
+extension UIViewController {
+    
+    
+    //hides the keyboard when user presses on the main view
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    //dismisses keyboard
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+extension UIActivityIndicatorView {
+    
+    convenience init(activityIndicatorStyle: UIActivityIndicatorViewStyle, color: UIColor, placeInTheCenterOf parentView: UIView) {
+        self.init(activityIndicatorStyle: activityIndicatorStyle)
+        center = parentView.center
+        self.color = color
+        parentView.addSubview(self)
+    }
+}
+
+extension UIView {
+    func loopViewHierarchy(block: ViewBlock?) {
+        
+        if block?(self) ?? true {
+            for subview in subviews {
+                subview.loopViewHierarchy(block: block)
+            }
+        }
+    }
+}
+
+extension String {
+    func indexDistance(of character: Character) -> Int? {
+        guard let index = index(of: character) else { return nil }
+        return distance(from: startIndex, to: index)
+    }
 }
 
 //extension MKMapView {

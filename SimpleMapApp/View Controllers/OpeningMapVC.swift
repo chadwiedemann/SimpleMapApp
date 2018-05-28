@@ -8,6 +8,9 @@
 
 import UIKit
 import MapKit
+import CoreLocation
+import RxSwift
+import RxCocoa
 
 class OpeningMapVC: UIViewController {
 
@@ -15,8 +18,9 @@ class OpeningMapVC: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     let networker: NetworkController!
     let state: StateController!
-    var searchBarDelegate: SearchBarDelegate?
     var mapViewDelegate: MapViewDelegate?
+    let locationManger = CLLocationManager()
+    let disposeBag = DisposeBag()
     
     init(networker: NetworkController, state: StateController) {
         self.networker = networker
@@ -37,12 +41,16 @@ class OpeningMapVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBarDelegate = SearchBarDelegate(searchBar: searchBar, mapView: mapView, stateController: state, networker: networker)
-        mapViewDelegate = MapViewDelegate(mapView: mapView, stateController: state, networker: networker)
+        hideKeyboardWhenTappedAround()
+        locationManger.requestWhenInUseAuthorization()
+        subrcibeToSearchFieldTap()
+        mapView.showsUserLocation = true
+        mapViewDelegate = MapViewDelegate(viewController: self, mapView: mapView, stateController: state, networker: networker)
         registerAnnotationViewClasses()
         //register for notfications
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(self.placeAnnotations), name: NSNotification.Name(rawValue: "finishedAPICall"), object: nil)
+        notificationCenter.addObserver(self, selector: #selector(self.updateAnnotation), name: NSNotification.Name(rawValue: "annotationImageUpdated"), object: nil)
     }
 
     @objc private func placeAnnotations() {
@@ -52,6 +60,28 @@ class OpeningMapVC: UIViewController {
         }
 //        mapView.fitAll(in: state.searchResults, andShow: true)
         mapView.showAnnotations(state.searchResults, animated: true)
+    }
+    
+    @objc private func updateAnnotation(notification: Notification){
+        let venue = state.searchResults.filter{ $0.id == notification.userInfo!["id"] as! String }.first!
+            mapView.removeAnnotation(venue)
+            mapView.addAnnotation(venue)
+        
+    }
+    
+    private func subrcibeToSearchFieldTap(){
+        searchBar
+            .rx.searchButtonClicked
+            .subscribe(onNext: { [unowned self] query in
+                self.mapView.removeOverlays(self.mapView.overlays)
+                self.searchBar.resignFirstResponder()
+                self.mapView.removeAnnotations(self.mapView.annotations)
+                let center = self.mapView.centerCoordinate
+                if let searchText = self.searchBar.text {
+                    self.networker.getNearbyPlacesFromString(searchText, centerPoint: center)
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
 

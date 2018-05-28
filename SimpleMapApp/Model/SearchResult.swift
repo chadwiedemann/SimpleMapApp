@@ -13,6 +13,6 @@ struct SearchResult: Codable {
 }
 
 struct Response: Codable {
-    let venues: [Venue]
+    let venues: [DecodableVenue]
 }
 

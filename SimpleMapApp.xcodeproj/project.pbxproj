@@ -14,7 +14,6 @@
 		D81AB1D120B9BF7B00836F22 /* OpeningMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1CF20B9BF7B00836F22 /* OpeningMapVC.swift */; };
 		D81AB1D220B9BF7B00836F22 /* OpeningMapVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D81AB1D020B9BF7B00836F22 /* OpeningMapVC.xib */; };
 		D81AB1D920B9CA7B00836F22 /* StateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1D820B9CA7B00836F22 /* StateController.swift */; };
-		D81AB1DC20B9CD7000836F22 /* SearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1DB20B9CD7000836F22 /* SearchBarDelegate.swift */; };
 		D81AB1DE20B9CF5C00836F22 /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1DD20B9CF5C00836F22 /* MapViewDelegate.swift */; };
 		D81AB1E020B9D22B00836F22 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1DF20B9D22B00836F22 /* URLs.swift */; };
 		D81AB1E620B9EE4300836F22 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1E520B9EE4300836F22 /* Extensions.swift */; };
@@ -25,6 +24,7 @@
 		D81AB1F520BA1F5B00836F22 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1F420BA1F5B00836F22 /* Alert.swift */; };
 		D81AB1FB20BA40A300836F22 /* ClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1FA20BA40A300836F22 /* ClusterView.swift */; };
 		D81AB1FD20BA43D600836F22 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1FC20BA43D600836F22 /* CustomAnnotationView.swift */; };
+		D81AB1FF20BBA0CA00836F22 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81AB1FE20BBA0CA00836F22 /* SafariServices.framework */; };
 		D8A1A6BB20B9BB420092ADEC /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A1A6BA20B9BB420092ADEC /* NetworkController.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +40,6 @@
 		D81AB1CF20B9BF7B00836F22 /* OpeningMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningMapVC.swift; sourceTree = "<group>"; };
 		D81AB1D020B9BF7B00836F22 /* OpeningMapVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpeningMapVC.xib; sourceTree = "<group>"; };
 		D81AB1D820B9CA7B00836F22 /* StateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateController.swift; sourceTree = "<group>"; };
-		D81AB1DB20B9CD7000836F22 /* SearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarDelegate.swift; sourceTree = "<group>"; };
 		D81AB1DD20B9CF5C00836F22 /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		D81AB1DF20B9D22B00836F22 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		D81AB1E520B9EE4300836F22 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		D81AB1F420BA1F5B00836F22 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		D81AB1FA20BA40A300836F22 /* ClusterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterView.swift; sourceTree = "<group>"; };
 		D81AB1FC20BA43D600836F22 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
+		D81AB1FE20BBA0CA00836F22 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		D8A1A6BA20B9BB420092ADEC /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D81AB1FF20BBA0CA00836F22 /* SafariServices.framework in Frameworks */,
 				658F68380F50DCB026C39F26 /* Pods_SimpleMapApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,6 +79,7 @@
 		7144EEC5A62418E1769A2813 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D81AB1FE20BBA0CA00836F22 /* SafariServices.framework */,
 				49C50DA482D1E5CBBF75FFF2 /* Pods_SimpleMapApp.framework */,
 			);
 			name = Frameworks;
@@ -177,7 +179,6 @@
 		D81AB1DA20B9CD0A00836F22 /* View Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				D81AB1DB20B9CD7000836F22 /* SearchBarDelegate.swift */,
 				D81AB1DD20B9CF5C00836F22 /* MapViewDelegate.swift */,
 			);
 			path = "View Delegates";
@@ -338,7 +339,6 @@
 				D81AB1EE20B9FC4C00836F22 /* Location.swift in Sources */,
 				D81AB1F520BA1F5B00836F22 /* Alert.swift in Sources */,
 				D81AB1D120B9BF7B00836F22 /* OpeningMapVC.swift in Sources */,
-				D81AB1DC20B9CD7000836F22 /* SearchBarDelegate.swift in Sources */,
 				D81AB1E820B9FA7D00836F22 /* Venue.swift in Sources */,
 				D81AB1E020B9D22B00836F22 /* URLs.swift in Sources */,
 				D81AB1D920B9CA7B00836F22 /* StateController.swift in Sources */,
