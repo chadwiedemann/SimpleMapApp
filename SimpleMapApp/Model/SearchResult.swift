@@ -7,12 +7,12 @@
 //
 
 import Foundation
+
+//these two structs are used to help parse the JSON respone we get back from the FourSquareApi in the StateController.
 struct SearchResult: Codable {
     let response: Response
-
 }
 
 struct Response: Codable {
     let venues: [DecodableVenue]
 }
-

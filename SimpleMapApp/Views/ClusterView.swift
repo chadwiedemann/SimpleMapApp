@@ -1,18 +1,14 @@
-/*
-See LICENSE folder for this sample’s licensing information.
 
-Abstract:
-A subclass of MKAnnotationView that configures itself for representing a MKClusterAnnotation with only Bike member annotations.
-*/
 import MapKit
 
+//this is the circle annotation that appears as the normal annotation get too close together
 class ClusterView: MKAnnotationView {
     
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         displayPriority = .defaultHigh
         collisionMode = .circle
-        centerOffset = CGPoint(x: 0, y: -10) // Offset center point to animate better with marker annotations
+        centerOffset = CGPoint(x: 0, y: -10) // Offset center point to animate better with normal annotations
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -24,24 +20,12 @@ class ClusterView: MKAnnotationView {
             if let cluster = newValue as? MKClusterAnnotation {
                 let renderer = UIGraphicsImageRenderer(size: CGSize(width: 40, height: 40))
                 let count = cluster.memberAnnotations.count
-//                let uniCount = cluster.memberAnnotations.filter { member -> Bool in
-//                    return (member as! Bike).type == .unicycle
-//                }.count
+                //set the graphics of the view
                 image = renderer.image { _ in
-                    // Fill full circle with tricycle color
-                    UIColor(named: "tricycleCol")?.setFill()
+                    // Fill outer circle with black color
+                    UIColor.black.setFill()
                     UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 40, height: 40)).fill()
-                    
-                    // Fill pie with unicycle color
-//                    UIColor(named: "unicycleCol")?.setFill()
-//                    let piePath = UIBezierPath()
-//                    piePath.addArc(withCenter: CGPoint(x: 20, y: 20), radius: 20,
-//                                   startAngle: 0, endAngle: (CGFloat.pi * 2.0 * CGFloat(uniCount)) / CGFloat(count),
-//                                   clockwise: true)
-//                    piePath.addLine(to: CGPoint(x: 20, y: 20))
-//                    piePath.close()
-//                    piePath.fill()
-                    
+                   
                     // Fill inner circle with white color
                     UIColor.white.setFill()
                     UIBezierPath(ovalIn: CGRect(x: 8, y: 8, width: 24, height: 24)).fill()
@@ -57,5 +41,4 @@ class ClusterView: MKAnnotationView {
             }
         }
     }
-
 }

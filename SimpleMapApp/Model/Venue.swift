@@ -11,6 +11,7 @@ import MapKit
 import UIKit
 
 class Venue: NSObject, MKAnnotation {
+    
     let id: String
     let name: String
     let location: Location
@@ -30,7 +31,7 @@ class Venue: NSObject, MKAnnotation {
     }
 }
 
-//we need this class because MKAnnotations must not have optional coordinate but the data we get back from FourSquare is occasionally missing coordinate data.
+//we need this class because MKAnnotations must not have optional coordinates per the protol requirements but the data we get back from FourSquare is occasionally missing coordinate data. this class has an optional coordinate property and the normal Venue class does not.  
 class DecodableVenue: NSObject, Codable {
     let id: String
     let name: String

@@ -11,7 +11,6 @@ import UIKit
 
 struct Alert {
     
-    /// Show an alert on the main navigation stack
     static func show(_ title: String, message: String, viewController: UIViewController, okayCompletion: (()->())? = nil, cancelCompletion: (()->())? = nil) {
         
         DispatchQueue.main.async {

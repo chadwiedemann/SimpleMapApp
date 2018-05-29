@@ -14,7 +14,6 @@
 		D81AB1D120B9BF7B00836F22 /* OpeningMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1CF20B9BF7B00836F22 /* OpeningMapVC.swift */; };
 		D81AB1D220B9BF7B00836F22 /* OpeningMapVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D81AB1D020B9BF7B00836F22 /* OpeningMapVC.xib */; };
 		D81AB1D920B9CA7B00836F22 /* StateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1D820B9CA7B00836F22 /* StateController.swift */; };
-		D81AB1DE20B9CF5C00836F22 /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1DD20B9CF5C00836F22 /* MapViewDelegate.swift */; };
 		D81AB1E020B9D22B00836F22 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1DF20B9D22B00836F22 /* URLs.swift */; };
 		D81AB1E620B9EE4300836F22 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1E520B9EE4300836F22 /* Extensions.swift */; };
 		D81AB1E820B9FA7D00836F22 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1E720B9FA7D00836F22 /* Venue.swift */; };
@@ -25,6 +24,9 @@
 		D81AB1FB20BA40A300836F22 /* ClusterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1FA20BA40A300836F22 /* ClusterView.swift */; };
 		D81AB1FD20BA43D600836F22 /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB1FC20BA43D600836F22 /* CustomAnnotationView.swift */; };
 		D81AB1FF20BBA0CA00836F22 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81AB1FE20BBA0CA00836F22 /* SafariServices.framework */; };
+		D81AB20120BC799300836F22 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB20020BC799300836F22 /* APIRequest.swift */; };
+		D81AB20520BC7A9300836F22 /* NearbyVenueRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB20420BC7A9300836F22 /* NearbyVenueRequest.swift */; };
+		D81AB20920BCDABD00836F22 /* VenueDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81AB20820BCDABD00836F22 /* VenueDetailRequest.swift */; };
 		D8A1A6BB20B9BB420092ADEC /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A1A6BA20B9BB420092ADEC /* NetworkController.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +42,6 @@
 		D81AB1CF20B9BF7B00836F22 /* OpeningMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningMapVC.swift; sourceTree = "<group>"; };
 		D81AB1D020B9BF7B00836F22 /* OpeningMapVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OpeningMapVC.xib; sourceTree = "<group>"; };
 		D81AB1D820B9CA7B00836F22 /* StateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateController.swift; sourceTree = "<group>"; };
-		D81AB1DD20B9CF5C00836F22 /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		D81AB1DF20B9D22B00836F22 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		D81AB1E520B9EE4300836F22 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D81AB1E720B9FA7D00836F22 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
@@ -51,6 +52,9 @@
 		D81AB1FA20BA40A300836F22 /* ClusterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClusterView.swift; sourceTree = "<group>"; };
 		D81AB1FC20BA43D600836F22 /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		D81AB1FE20BBA0CA00836F22 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		D81AB20020BC799300836F22 /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		D81AB20420BC7A9300836F22 /* NearbyVenueRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyVenueRequest.swift; sourceTree = "<group>"; };
+		D81AB20820BCDABD00836F22 /* VenueDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetailRequest.swift; sourceTree = "<group>"; };
 		D8A1A6BA20B9BB420092ADEC /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,15 +110,15 @@
 		D811F5E320B98A020069531D /* SimpleMapApp */ = {
 			isa = PBXGroup;
 			children = (
+				D81AB1D520B9C11100836F22 /* Application */,
+				D811F5F720B98A850069531D /* Views */,
+				D811F5F820B98A940069531D /* View Controllers */,
+				D81AB1D720B9CA0900836F22 /* Model Controllers */,
+				D811F5F620B98A7E0069531D /* Model */,
+				D81AB1D620B9C15800836F22 /* Constants */,
 				D81AB1F320BA1F4100836F22 /* Utilities */,
 				D81AB1E420B9D74F00836F22 /* Swift Extensions */,
 				D81AB1E320B9D2D300836F22 /* Resources */,
-				D81AB1D620B9C15800836F22 /* Constants */,
-				D81AB1D520B9C11100836F22 /* Application */,
-				D811F5F720B98A850069531D /* Views */,
-				D81AB1D720B9CA0900836F22 /* Model Controllers */,
-				D811F5F820B98A940069531D /* View Controllers */,
-				D811F5F620B98A7E0069531D /* Model */,
 				D811F5F020B98A020069531D /* Info.plist */,
 			);
 			path = SimpleMapApp;
@@ -124,8 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				D81AB1E720B9FA7D00836F22 /* Venue.swift */,
-				D81AB1EF20B9FE1400836F22 /* SearchResult.swift */,
 				D81AB1ED20B9FC4C00836F22 /* Location.swift */,
+				D81AB1EF20B9FE1400836F22 /* SearchResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,19 +173,13 @@
 		D81AB1D720B9CA0900836F22 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D81AB1DA20B9CD0A00836F22 /* View Delegates */,
+				D81AB20020BC799300836F22 /* APIRequest.swift */,
+				D81AB20420BC7A9300836F22 /* NearbyVenueRequest.swift */,
+				D81AB20820BCDABD00836F22 /* VenueDetailRequest.swift */,
 				D8A1A6BA20B9BB420092ADEC /* NetworkController.swift */,
 				D81AB1D820B9CA7B00836F22 /* StateController.swift */,
 			);
 			path = "Model Controllers";
-			sourceTree = "<group>";
-		};
-		D81AB1DA20B9CD0A00836F22 /* View Delegates */ = {
-			isa = PBXGroup;
-			children = (
-				D81AB1DD20B9CF5C00836F22 /* MapViewDelegate.swift */,
-			);
-			path = "View Delegates";
 			sourceTree = "<group>";
 		};
 		D81AB1E320B9D2D300836F22 /* Resources */ = {
@@ -333,7 +331,7 @@
 			files = (
 				D81AB1F020B9FE1400836F22 /* SearchResult.swift in Sources */,
 				D81AB1FD20BA43D600836F22 /* CustomAnnotationView.swift in Sources */,
-				D81AB1DE20B9CF5C00836F22 /* MapViewDelegate.swift in Sources */,
+				D81AB20520BC7A9300836F22 /* NearbyVenueRequest.swift in Sources */,
 				D81AB1E620B9EE4300836F22 /* Extensions.swift in Sources */,
 				D81AB1F220B9FEF600836F22 /* FourSquareCodes.swift in Sources */,
 				D81AB1EE20B9FC4C00836F22 /* Location.swift in Sources */,
@@ -343,7 +341,9 @@
 				D81AB1E020B9D22B00836F22 /* URLs.swift in Sources */,
 				D81AB1D920B9CA7B00836F22 /* StateController.swift in Sources */,
 				D811F5E520B98A020069531D /* AppDelegate.swift in Sources */,
+				D81AB20920BCDABD00836F22 /* VenueDetailRequest.swift in Sources */,
 				D8A1A6BB20B9BB420092ADEC /* NetworkController.swift in Sources */,
+				D81AB20120BC799300836F22 /* APIRequest.swift in Sources */,
 				D81AB1FB20BA40A300836F22 /* ClusterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

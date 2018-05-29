@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        //Injecting our StateController and NetworkController early on in the app's lifecycle.  We will pass this along to other classes as needed.
         let stateController = StateController()
         let networkController = NetworkController(state: stateController)
         let controller = OpeningMapVC(networker: networkController, state: stateController)
@@ -22,6 +23,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = controller
         return true
     }
-
 }
-

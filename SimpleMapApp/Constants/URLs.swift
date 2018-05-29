@@ -8,10 +8,8 @@
 
 import Foundation
 
-struct URLs {
-    static let searchVenuesURL = "https://api.foursquare.com/v2/venues/search"
-    static func venueDetailsURLFromVenueID(_ id: String) -> String{
-        return "https://api.foursquare.com/v2/venues/" + id
-    }
+//some Strings we use in this app
+struct AppStrings {
+    static let fourSquareBaseURL = "https://api.foursquare.com/v2/venues"
 }
 

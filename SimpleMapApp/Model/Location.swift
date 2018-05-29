@@ -10,6 +10,7 @@ import Foundation
 import CoreLocation
 
 struct Location: Codable {
+    
     let coordinates: [CLLocationCoordinate2D]?
     let distance: Int
     
@@ -17,5 +18,4 @@ struct Location: Codable {
         case coordinates = "labeledLatLngs"
         case distance = "distance"
     }
-    
 }

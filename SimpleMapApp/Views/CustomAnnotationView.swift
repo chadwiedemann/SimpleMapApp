@@ -10,6 +10,7 @@ import MapKit
 
 class CustomAnnotationView: MKAnnotationView {
     
+    //overiding this so when layoutSubviews is called below we can get a reference to the subtitle so we can set it to blue to represent a hyperlink
     override func didAddSubview(_ subview: UIView) {
         if isSelected {
             setNeedsLayout()
@@ -17,14 +18,10 @@ class CustomAnnotationView: MKAnnotationView {
     }
     
     override func layoutSubviews() {
-        
-        // MKAnnotationViews only have subviews if they've been selected.
-        // short-circuit if there's nothing to loop over
-        
         if !isSelected {
             return
         }
-        
+        //setting thee subtitle with the venue's website to blue
         loopViewHierarchy { (view: UIView) -> Bool in
             if let label = view as? UILabel, let text = label.text, text.contains("http") {
                 label.textColor = UIColor.blue
@@ -34,6 +31,7 @@ class CustomAnnotationView: MKAnnotationView {
         }
     }
     
+    //customizing the annotation image and calloutviews here 
     override var annotation: MKAnnotation? {
         willSet {
             if let venue = newValue as? Venue {
@@ -46,10 +44,7 @@ class CustomAnnotationView: MKAnnotationView {
                                                         size: CGSize(width: 35, height: 35)))
                 mapsButton.setBackgroundImage(#imageLiteral(resourceName: "Maps-icon"), for: UIControlState())
                 rightCalloutAccessoryView = mapsButton
-                
-                
             }
         }
     }
-    
 }
